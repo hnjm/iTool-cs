@@ -1,2 +1,2 @@
 # iTool-cs
-set of tools for C# language
+iTool for C-sharp.
