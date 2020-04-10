@@ -50,6 +50,26 @@ namespace iTool
             for (int i = 0; i < padding; i++) sn = "0" + sn;
             return sn;
         }
-
+        /// <summary>
+        /// Return string between the start & end strings from source string.
+        /// </summary>
+        /// <param name="strSource"></param>
+        /// <param name="strStart"></param>
+        /// <param name="strEnd"></param>
+        /// <returns></returns>
+        private static string GetBetween(string strSource, string strStart, string strEnd)
+        {
+            int Start, End;
+            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            {
+                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
+                End = strSource.IndexOf(strEnd, Start);
+                return strSource.Substring(Start, End - Start);
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }
