@@ -78,7 +78,7 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static PingTypes[] Pings(string Address, int timeout = 2500, ushort times = 2)
+        public static PingTypes[] Pings(string Address, ushort times = 2, int timeout = 2500)
         {
             if (times > 0)
             {
@@ -99,7 +99,7 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static PingTypes[] Pings(IPAddress Address, int timeout = 2500, ushort times = 2)
+        public static PingTypes[] Pings(IPAddress Address, ushort times = 2, int timeout = 2500)
         {
             if (times > 0)
             {
@@ -120,7 +120,7 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static long PingTotalTime(string Address, int timeout = 2500, ushort times = 2)
+        public static long PingTotalTime(string Address, ushort times = 2, int timeout = 2500)
         {
             if (times > 0)
             {
@@ -141,7 +141,7 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static long PingTotalTime(IPAddress Address, int timeout = 2500, ushort times = 2)
+        public static long PingTotalTime(IPAddress Address, ushort times = 2, int timeout = 2500)
         {
             if (times > 0)
             {
