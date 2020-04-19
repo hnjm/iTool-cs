@@ -78,14 +78,19 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static PingTypes[] Pings(string Address, int timeout = 2500, ushort times = 2)
+        public static PingTypes[] Pings(string Address, ushort times = 2, int timeout = 2500)
         {
-            var pings = new PingTypes[times];
+            if (times > 0)
+            {
+                var pings = new PingTypes[times];
 
-            for (int i = 0; i < times; i++)
-                pings[i] = Ping(Address, timeout);
+                for (int i = 0; i < times; i++)
+                    pings[i] = Ping(Address, timeout);
 
-            return pings;
+                return pings;
+            }
+            else
+                return null;
         }
         /// <summary>
         /// Archives an array of pings to the given address.
@@ -94,14 +99,19 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static PingTypes[] Pings(IPAddress Address, int timeout = 2500, ushort times = 2)
+        public static PingTypes[] Pings(IPAddress Address, ushort times = 2, int timeout = 2500)
         {
-            var pings = new PingTypes[times];
+            if (times > 0)
+            {
+                var pings = new PingTypes[times];
 
-            for (int i = 0; i < times; i++)
-                pings[i] = Ping(Address, timeout);
+                for (int i = 0; i < times; i++)
+                    pings[i] = Ping(Address, timeout);
 
-            return pings;
+                return pings;
+            }
+            else
+                return null;
         }
         /// <summary>
         /// Calculates the total of round trip time of pings.
@@ -110,14 +120,19 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static long PingTotalTime(string Address, int timeout = 2500, ushort times = 2)
+        public static long PingTotalTime(string Address, ushort times = 2, int timeout = 2500)
         {
-            long[] tripTimesArr = new long[times];
+            if (times > 0)
+            {
+                long[] tripTimesArr = new long[times];
 
-            for (int i = 0; i < times; i++)
-                tripTimesArr[i] = Ping(Address, timeout).Time;
+                for (int i = 0; i < times; i++)
+                    tripTimesArr[i] = Ping(Address, timeout).Time;
 
-            return tripTimesArr.Sum() / tripTimesArr.Length;
+                return tripTimesArr.Sum() / tripTimesArr.Length;
+            }
+            else
+                return -1;
         }
         /// <summary>
         /// Calculates the total of round trip time of pings.
@@ -126,14 +141,19 @@ namespace iTool.Network
         /// <param name="timeout"></param>
         /// <param name="times"></param>
         /// <returns></returns>
-        public static long PingTotalTime(IPAddress Address, int timeout = 2500, ushort times = 2)
+        public static long PingTotalTime(IPAddress Address, ushort times = 2, int timeout = 2500)
         {
-            long[] tripTimesArr = new long[times];
+            if (times > 0)
+            {
+                long[] tripTimesArr = new long[times];
 
-            for (int i = 0; i < times; i++)
-                tripTimesArr[i] = Ping(Address, timeout).Time;
+                for (int i = 0; i < times; i++)
+                    tripTimesArr[i] = Ping(Address, timeout).Time;
 
-            return tripTimesArr.Sum() / tripTimesArr.Length;
+                return tripTimesArr.Sum() / tripTimesArr.Length;
+            }
+            else
+                return -1;
         }
     }
 }

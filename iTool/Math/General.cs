@@ -44,6 +44,5 @@ namespace iTool.iMath
             else
                 return Convert.ToDecimal((numerator * 100) / denominator);
         }
-        static void x() { Console.WriteLine(""); }
     }
 }
