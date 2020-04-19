@@ -4,8 +4,37 @@ using System.Net;
 
 namespace iTool
 {
-    public static class iString
+    /* Todo 
+     * probably overload for void methods that get string by ref
+     * not static iString => creates a class as iString (like StringBuilder) ..
+       probably inheriting from string builder ? or include others too (by using multiple classes) ?
+    */
+    public class iString
     {
+        /// <summary>
+        /// Convert to uppercase a char of the string with the given index.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static string ToUpper(string str, int index) =>
+            str.Substring(0, index) +
+            str[index].ToString().ToUpper() +
+            str.Substring(index + 1);
+        /// <summary>
+        /// Convert each first letter of every word to uppercase.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string ToUpperEachFirstWord(string str)
+        {
+            var output = string.Empty;
+            var arr = str.Split();
+            foreach (var item in arr)
+                output += ToUpper(item, 0) + " ";
+
+            return output;
+        }
         /// <summary>
         /// *For Console* Center the string (default: by window width)
         /// </summary>
@@ -57,7 +86,7 @@ namespace iTool
         /// <param name="strStart"></param>
         /// <param name="strEnd"></param>
         /// <returns></returns>
-        private static string GetBetween(string strSource, string strStart, string strEnd)
+        public static string GetBetween(string strSource, string strStart, string strEnd)
         {
             int Start, End;
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
